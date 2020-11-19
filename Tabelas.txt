@@ -1,0 +1,88 @@
+use medness;
+
+CREATE TABLE usuario
+(
+   idusuario INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+   nome VARCHAR(45) NOT NULL,
+   login VARCHAR(12) NOT NULL,
+   senha VARCHAR(99) NOT NULL,
+   logado BOOLEAN null,
+   PRIMARY KEY (idusuario)
+)
+
+insert into usuario (nome, login, senha, logado) values ("Gabriel", "fellone", "dDRlc3RNkYXM", true, 13);
+
+
+CREATE TABLE usuarios
+(
+   idusuarios INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+   nome VARCHAR(45) NOT NULL,
+   login VARCHAR(12) NOT NULL,
+   senha VARCHAR(99) NOT NULL,
+   logado BOOLEAN null,
+   qntExames INTEGER null,
+   PRIMARY KEY (idusuarios)
+)
+
+select * from usuarios;
+
+insert into usuarios (nome, login, senha, logado,qntExames) values ("Gabriel", "fellone", "dDRlc3RNkYXM", true, 13);
+insert into usuarios (nome, login, senha, logado,qntExames) values ("Renan", "rennan", "dGVzdGITIz", true, 22);
+insert into usuarios (nome, login, senha, logado,qntExames) values ("Leticia", "lehtest", "YmF0YXRhQDE=", false, 1);
+insert into usuarios (nome, login, senha, logado,qntExames) values ("Alfredin", "alfredones", "vFasYXRhQDE=", false, 4);
+insert into usuarios (nome, login, senha, logado,qntExames) values ("SenhorBatata", "batatinha", "KDOK2XQS", true, 6);
+insert into usuarios (nome, login, senha, logado,qntExames) values ("Cenourinha", "cenouratop", "1OASFNHHQ", true, 7);
+insert into usuarios (nome, login, senha, logado,qntExames) values ("Leandro", "leandrinho", "DASDSADSA", false, 19);
+
+
+truncate table usuario;
+
+CREATE TABLE relatorio
+(
+   idrelatorio INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+   qntUsuarios INTEGER NULL,
+   qntExames INTEGER NULL,
+   ultimoExameCriado VARCHAR(99) NULL,
+   ultimoUsuarioLogado VARCHAR(99) null,
+   totalConfirmaExames INTEGER null,
+   PRIMARY KEY (idrelatorio)
+)
+
+
+
+CREATE TABLE relatorioExames
+(
+   idrelatorioexame INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+   nomeRelatorio VARCHAR(99) NULL,
+   codigoRelatorio INTEGER null,
+   PRIMARY KEY (idrelatorioexame)
+)
+
+
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Ortopedia", 23);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Psicologo", 13);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Oftalmo", 24);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Broncoscopia", 22);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Eritrograma", 21);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Radiografia", 20);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Toracocentese", 14);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Mamografia", 15);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Otoscopia", 16);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Laringoscopia", 17);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Sigmoidoscopia", 18);
+insert into relatorioExames (nomeRelatorio, codigoRelatorio) values ("Teste Covid", 19);
+
+select * from relatorioExames;
+truncate table relatorioExames;
+
+
+select * from relatorio;
+
+drop table usuario;
+truncate table relatorio;
+insert into relatorio (qntUsuarios, qntExames, ultimoExameCriado, ultimoUsuarioLogado, totalConfirmaExames) values (7, 72, "Teste Covid(19)", "Cenourinha", 32);
+
+
+
+
+

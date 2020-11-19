@@ -1,0 +1,76 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": null,
+        "filterable": false
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "dark-purple",
+            "value": null
+          },
+          {
+            "color": "purple",
+            "value": 79.9996
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 4,
+    "w": 6,
+    "x": 7,
+    "y": 9
+  },
+  "id": 16,
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "mean"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "name",
+    "colorMode": "background",
+    "graphMode": "area",
+    "justifyMode": "center"
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "time_series",
+      "group": [],
+      "metricColumn": "ultimoExameCriado",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  idrelatorio AS \"time\",\n  ultimoExameCriado AS metric,\n  qntUsuarios\nFROM relatorio\nORDER BY idrelatorio",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "qntUsuarios"
+            ],
+            "type": "column"
+          }
+        ]
+      ],
+      "table": "relatorio",
+      "timeColumn": "idrelatorio",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "Último Exame Solicitado",
+  "type": "stat",
+  "datasource": null
+}

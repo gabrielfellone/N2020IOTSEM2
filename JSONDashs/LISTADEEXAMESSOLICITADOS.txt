@@ -1,0 +1,87 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": "center",
+        "displayMode": "color-background",
+        "filterable": true
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "dark-purple",
+            "value": null
+          },
+          {
+            "color": "purple",
+            "value": 79.9996
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 13,
+    "w": 4,
+    "x": 13,
+    "y": 0
+  },
+  "id": 17,
+  "options": {
+    "showHeader": true,
+    "frameIndex": 1
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "table",
+      "group": [
+        {
+          "params": [
+            "nomeRelatorio"
+          ],
+          "type": "column"
+        }
+      ],
+      "metricColumn": "nomeRelatorio",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  idrelatorioexame AS \"time\",\n  nomeRelatorio AS metric,\n  avg(codigoRelatorio) AS \"codigoRelatorio\"\nFROM relatorioexames\nGROUP BY nomeRelatorio,2\nORDER BY idrelatorioexame",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "codigoRelatorio"
+            ],
+            "type": "column"
+          },
+          {
+            "params": [
+              "avg"
+            ],
+            "type": "aggregate"
+          },
+          {
+            "params": [
+              "codigoRelatorio"
+            ],
+            "type": "alias"
+          }
+        ]
+      ],
+      "table": "relatorioexames",
+      "timeColumn": "idrelatorioexame",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "title": "Lista Exames Solicitados",
+  "transparent": true,
+  "type": "table",
+  "timeFrom": null,
+  "timeShift": null,
+  "datasource": null
+}

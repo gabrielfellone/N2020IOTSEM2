@@ -1,0 +1,88 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": null,
+        "filterable": false
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "light-yellow",
+            "value": null
+          },
+          {
+            "color": "purple",
+            "value": 79.9996
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 5,
+    "w": 4,
+    "x": 3,
+    "y": 4
+  },
+  "id": 10,
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "mean"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "auto",
+    "colorMode": "value",
+    "graphMode": "area",
+    "justifyMode": "auto"
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "time_series",
+      "group": [],
+      "metricColumn": "none",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  totalConfirmaExames AS \"time\",\n  avg(qntExames) AS \"qntExames\"\nFROM relatorio\nORDER BY totalConfirmaExames",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "qntExames"
+            ],
+            "type": "column"
+          },
+          {
+            "params": [
+              "avg"
+            ],
+            "type": "aggregate"
+          },
+          {
+            "params": [
+              "qntExames"
+            ],
+            "type": "alias"
+          }
+        ]
+      ],
+      "table": "relatorio",
+      "timeColumn": "totalConfirmaExames",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "TOTAL EXAMES SOLICITADOS",
+  "type": "stat",
+  "datasource": null
+}

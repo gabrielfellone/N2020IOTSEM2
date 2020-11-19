@@ -1,0 +1,72 @@
+{
+  "datasource": "MySQL",
+  "fieldConfig": {
+    "defaults": {
+      "custom": {},
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "light-yellow",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 4,
+    "w": 4,
+    "x": 3,
+    "y": 0
+  },
+  "id": 4,
+  "options": {
+    "reduceOptions": {
+      "values": true,
+      "calcs": [
+        "first"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "displayMode": "gradient",
+    "showUnfilled": true
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "time_series",
+      "group": [],
+      "metricColumn": "nome",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  idusuarios AS \"time\",\n  nome AS metric,\n  qntExames\nFROM usuarios\nORDER BY idusuarios",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "qntExames"
+            ],
+            "type": "column"
+          }
+        ]
+      ],
+      "table": "usuarios",
+      "timeColumn": "idusuarios",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "title": "Qnt Exames Solicitados Usuarios",
+  "transformations": [],
+  "type": "bargauge",
+  "timeFrom": null,
+  "timeShift": null
+}

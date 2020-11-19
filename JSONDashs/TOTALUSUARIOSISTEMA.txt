@@ -1,0 +1,88 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": null,
+        "filterable": false
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "purple",
+            "value": 79.9996
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 4,
+    "w": 2,
+    "x": 11,
+    "y": 5
+  },
+  "id": 12,
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "mean"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "value",
+    "colorMode": "value",
+    "graphMode": "area",
+    "justifyMode": "auto"
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "time_series",
+      "group": [],
+      "metricColumn": "none",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  totalConfirmaExames AS \"time\",\n  avg(qntUsuarios) AS \"qntExames\"\nFROM relatorio\nORDER BY totalConfirmaExames",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "qntUsuarios"
+            ],
+            "type": "column"
+          },
+          {
+            "params": [
+              "avg"
+            ],
+            "type": "aggregate"
+          },
+          {
+            "params": [
+              "qntExames"
+            ],
+            "type": "alias"
+          }
+        ]
+      ],
+      "table": "relatorio",
+      "timeColumn": "totalConfirmaExames",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "Total Usuários",
+  "type": "stat",
+  "datasource": null
+}

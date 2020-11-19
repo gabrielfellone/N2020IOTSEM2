@@ -1,0 +1,89 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": null,
+        "filterable": false
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "orange",
+            "value": null
+          },
+          {
+            "color": "purple",
+            "value": 79.9996
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 5,
+    "w": 3,
+    "x": 0,
+    "y": 9
+  },
+  "id": 14,
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "mean"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "name",
+    "colorMode": "value",
+    "graphMode": "area",
+    "justifyMode": "auto"
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "time_series",
+      "group": [],
+      "metricColumn": "ultimoUsuarioLogado",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  qntExames AS \"time\",\n  ultimoUsuarioLogado AS metric,\n  avg(qntUsuarios) AS \"qntExames\"\nFROM relatorio\nORDER BY qntExames",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "qntUsuarios"
+            ],
+            "type": "column"
+          },
+          {
+            "params": [
+              "avg"
+            ],
+            "type": "aggregate"
+          },
+          {
+            "params": [
+              "qntExames"
+            ],
+            "type": "alias"
+          }
+        ]
+      ],
+      "table": "relatorio",
+      "timeColumn": "qntExames",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "title": "Último Usuário Logado",
+  "transparent": true,
+  "type": "stat",
+  "timeFrom": null,
+  "timeShift": null,
+  "datasource": null
+}

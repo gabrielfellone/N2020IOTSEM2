@@ -1,0 +1,78 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": null,
+        "filterable": false
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 4,
+    "w": 4,
+    "x": 7,
+    "y": 5
+  },
+  "id": 8,
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "sum"
+      ],
+      "fields": "/^logado$/"
+    },
+    "orientation": "auto",
+    "textMode": "value",
+    "colorMode": "background",
+    "graphMode": "area",
+    "justifyMode": "center"
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "table",
+      "group": [],
+      "hide": false,
+      "metricColumn": "none",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  idusuarios AS \"time\",\n  logado\nFROM usuarios\nORDER BY idusuarios",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "type": "column",
+            "params": [
+              "logado"
+            ]
+          }
+        ]
+      ],
+      "table": "usuarios",
+      "timeColumn": "idusuarios",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "title": "Qnt Usuários Logados",
+  "type": "stat",
+  "description": "",
+  "timeFrom": null,
+  "timeShift": null,
+  "datasource": null
+}

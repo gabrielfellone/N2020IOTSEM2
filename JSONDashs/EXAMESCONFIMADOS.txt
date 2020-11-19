@@ -1,0 +1,77 @@
+{
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": null,
+        "filterable": false
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "light-yellow",
+            "value": null
+          },
+          {
+            "color": "purple",
+            "value": 79.9996
+          }
+        ]
+      },
+      "mappings": []
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 5,
+    "w": 4,
+    "x": 3,
+    "y": 9
+  },
+  "id": 15,
+  "options": {
+    "reduceOptions": {
+      "values": true,
+      "calcs": [
+        "mean"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "auto",
+    "colorMode": "value",
+    "graphMode": "none",
+    "justifyMode": "auto"
+  },
+  "pluginVersion": "7.3.3",
+  "targets": [
+    {
+      "format": "time_series",
+      "group": [],
+      "metricColumn": "none",
+      "rawQuery": false,
+      "rawSql": "SELECT\n  idrelatorio AS \"time\",\n  totalConfirmaExames\nFROM relatorio\nORDER BY idrelatorio",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "totalConfirmaExames"
+            ],
+            "type": "column"
+          }
+        ]
+      ],
+      "table": "relatorio",
+      "timeColumn": "idrelatorio",
+      "timeColumnType": "int",
+      "where": []
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "EXAMES CONFIRMADOS",
+  "transparent": true,
+  "type": "stat",
+  "datasource": null
+}
